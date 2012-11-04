@@ -1,7 +1,10 @@
 # Ruscountrylist
 
 Список стран на русском языке.
+
 Russian country list.
+
+За основу взят список стран [http://www.artlebedev.ru/tools/country-list/](http://www.artlebedev.ru/tools/country-list/)
 
 ## Требования
 * Ruby 1.9.3 (возможо, подойдет версия старше)
@@ -73,7 +76,35 @@ Or install it yourself as:
 В шаблоне (на примере slim)
 
 	select_tag 'countries', options_from_collection_for_select(@countries, 'id', 'name')
+
+### Таблица стран
+
+Содержит следующие поля:
+
+	* string   "name" - Наименование
+	* string   "fullname" - Полное наименование
+	* string   "english" - На английском
+	* string   "alpha2" - Alpha2, двухбуквенное обозначение страны, RU
+	* string   "alpha3" - Alpha3, трехбуквенное обозначение страны, RUS
+	* string   "iso" - ISO код
+	* string   "location" - Часть света
+	* string   "location_precise" - Расположение
+	* boolean  "enabled",          :default => true - возможность включать и выключать запись
+	* integer  "show_order",       :default => 0 - порядок вывода, 0 - по умолчанию.
+
+Индекс по полю `name` (наименовение) с проверкой уникальности.
+
+### Модель
+
+По умолчанию модель создается с следующим 
 	
+	# attr_accessible :title, :body
+
+Если будет желание редактировать страны, то для модели можно добавить такой код:
+	
+	attr_accessible :name, :fullname, :english, :alpha2, :alpha3, :iso, :location, :location_precise, :enabled, :show_order
+
+
 ## Contributing
 
 1. Fork it
