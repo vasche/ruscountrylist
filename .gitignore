@@ -1,0 +1,14 @@
+.DS_Store
+*.swp
+pkg
+.bundle
+.rvmrc
+*.gem
+.bundle
+.idea
+Gemfile.lock
+gemfiles/*.lock
+pkg/*
+
+doc
+log
