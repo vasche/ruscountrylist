@@ -1,5 +1,12 @@
 # -*- encoding: utf-8 -*-
-class Create<%= model_class_name.pluralize %> < ActiveRecord::Migration
+migration_class =
+  if ActiveRecord::VERSION::MAJOR >= 5
+    ActiveRecord::Migration[4.2]
+  else
+    ActiveRecord::Migration
+  end
+
+class Create<%= model_class_name.pluralize %> < migration_class
   def self.up
     create_table :<%= model_class_name.pluralize.underscore %> do |t|
       t.string :name, null: false           #Наименование
