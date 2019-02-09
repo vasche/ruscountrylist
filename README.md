@@ -40,7 +40,7 @@ select_tag "countries", options_for_select(Ruscountrylist::RUS_COUNTRIES)
 
     <select id="countries" name="countries"><option value="Абхазия">Абхазия</option><option value="Австралия">Австралия</option>...</select>
 
-###Установка с моделью по умолчанию: Country
+### Установка с моделью по умолчанию: Country
 
 Генерация модели и миграции
 
